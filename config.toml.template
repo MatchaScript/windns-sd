@@ -1,0 +1,11 @@
+[services]
+[services.device_info]
+name = "MacPro"
+type = "_device-info._tcp"
+port = 65500 # 0 is not allowed
+text = { model = "MacPro1,1" }
+
+[services.smb]
+name = "MacPro"
+type = "_smb._tcp"
+port = 445

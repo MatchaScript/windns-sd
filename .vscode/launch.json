@@ -1,0 +1,32 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // Windows Service Debugging
+      // Start-Service -Name windns-sd
+      "type": "lldb",
+      "request": "attach",
+      "name": "Windows Service Debug",
+      "program": "${workspaceFolder}/target/debug/windns-sd",
+      "pid": "${command:pickProcess}"
+    },
+
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug executable 'windns-sd'",
+      "cargo": {
+        "args": ["build", "--bin=windns-sd", "--package=windns-sd"],
+        "filter": {
+          "name": "windns-sd",
+          "kind": "bin"
+        }
+      },
+      "args": ["--config", "config.toml"],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}
